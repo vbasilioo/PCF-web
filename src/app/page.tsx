@@ -1,101 +1,108 @@
+'use client';
+
+import Footer from "@/components/footer";
+import Navbar from "@/components/navbar";
+import { Facebook, Instagram, Linkedin } from "lucide-react";
 import Image from "next/image";
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) element.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+  return (
+    <div className="flex flex-col min-h-screen bg-gray-50">
+      <Navbar scrollToSection={scrollToSection} />
+      <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-800 mb-4 mt-6 text-center flex items-center justify-center">
+        Projeto Criança Feliz
+      </h1>
+      <main className="flex-grow py-16">
+        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between px-8" id="home">
+          <div className="text-left max-w-lg">
+            <p className="text-lg text-gray-700 mb-6 leading-relaxed">
+              O Projeto Criança Feliz (PCF) é uma associação socioeducativa sem
+              fins lucrativos que, através do voluntariado, busca despertar o
+              protagonismo de crianças, jovens e adultos de comunidades periféricas
+              por meio de ações que promovam acesso a novas perspectivas para que
+              eles possam reinventar seu lugar no mundo. Com tudo isso, visamos ser
+              referência no impacto social através do voluntariado, sempre dando o
+              nosso 110%, tratando cada detalhe com integridade e honestidade, e
+              vestindo a camisa laranja sempre.
+            </p>
+          </div>
+          <div className="hidden md:block w-1/2">
             <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+              src="https://lh3.googleusercontent.com/pw/AP1GczPBUpVQ4Mi0IYP8xsNlEclYqYf-GtkVc7DJ7tNeehpJgXKQhEOcS8WeWHS9tGQxRyMalpDPpOmdYBowOVWN6wIN0XU27dh9GZJkqLj6Z_sUL7_GSyY_PeSZ3kIbWN2YfxRjvbLH641T-Z_uGv-PyfdXBA=w1723-h969-s-no-gm?authuser=0"
+              alt="Imagem do Projeto"
+              className="rounded-lg shadow-lg"
+              width={800}
+              height={450}
             />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+          </div>
         </div>
+
+        <section id="about" className="py-16 bg-gray-50">
+          <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between px-8">
+            <div className="hidden md:block w-1/2">
+              <Image
+                src="https://lh3.googleusercontent.com/pw/AP1GczPKw3XwInPU130nJvjH3KscpkYn59EECvPVoXAVsLjep_VoeNabp7Z3LTcPIUF80inrNcNP0WuvMXvSuPyGMte9wbhAu1PF5tpNbdL8F8Tf6CZE8uCpN2ULTkLa79X0UBH9zi3re1q_zKRqCgvfsqTkjg=w1455-h969-s-no-gm?authuser=0"
+                alt="Imagem da Missão"
+                className="rounded-lg shadow-lg"
+                width={800}
+                height={450}
+              />
+            </div>
+            <div className="text-left max-w-lg">
+              <h2 className="text-3xl font-semibold text-gray-800 mb-4">Qual a nossa missão, visão e valores?</h2>
+              <p className="text-lg text-gray-700 mb-6 leading-relaxed">
+                Missão: Despertar o protagonismo em nossas crianças, jovens e pais.
+                Visão: Ser referência no impacto social através do voluntariado.
+                Valores: Camisa laranja, 110%, não existe ideia perdida, integridade e honestidade, você também é dono e Pampararã-pã.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section id="services" className="py-16 bg-gray-50">
+          <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between px-8">
+            <div className="text-left max-w-lg">
+              <h2 className="text-3xl font-semibold text-gray-800 mb-4">Quais são as áreas do PCF?</h2>
+              <p className="text-lg text-gray-700 mb-6 leading-relaxed">
+                O Projeto Criança Feliz é dividido em duas grandes gestões: ADMINISTRATIVA e OPERACIONAL, ambas têm o mesmo propósito de impactar a vida dos nossos atendidos e suas famílias, entretanto, a forma como trabalham para atingi-lo é diferente.
+              </p>
+            </div>
+            <div className="hidden md:block w-1/2">
+              <Image
+                src="https://lh3.googleusercontent.com/pw/AP1GczP6nLzk-mrPJoSBqv6-5I8urmFmjgBnWEqKHDY9mdp1VCzw9xXfCvlvUYIjUgrAlXX7SXtlNdkLmo_LDS6SWLONY89Kacn-asbtn1Ib37L8V_Mg6YSkA9UR8fRpuJJPq15StCbzTfAXUugcFt3Aix6AHw=w1456-h969-s-no-gm?authuser=0"
+                alt="Imagem das Áreas"
+                className="rounded-lg shadow-lg"
+                width={800}
+                height={450}
+              />
+            </div>
+          </div>
+        </section>
+
+        <section id="contact" className="py-16 bg-gray-50">
+          <h2 className="text-3xl font-semibold text-center mb-4 text-gray-800">Contato</h2>
+          <p className="text-lg text-center text-gray-700 max-w-4xl mx-auto mb-6">
+            Entre em contato com a gente nas redes sociais:
+          </p>
+          <div className="flex justify-center space-x-8">
+            <a href="https://www.instagram.com/criancafelizprojeto/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <Instagram className="h-8 w-8 text-orange-500 hover:text-blue-600 transition-colors" />
+            </a>
+            <a href="https://www.linkedin.com/in/criancafelizprojeto" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <Linkedin className="h-8 w-8 text-orange-500 hover:text-blue-600 transition-colors" />
+            </a>
+            <a href="https://www.facebook.com/criancafelizprojeto" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+              <Facebook className="h-8 w-8 text-orange-500 hover:text-blue-600 transition-colors" />
+            </a>
+          </div>
+        </section>
       </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      <Footer />
     </div>
   );
 }
